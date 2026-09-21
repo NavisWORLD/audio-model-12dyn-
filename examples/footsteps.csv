@@ -1,0 +1,9 @@
+seconds,surface,intensity,pan
+0.20,wood,0.70,-0.40
+0.68,wood,0.85,0.40
+1.17,gravel,0.80,-0.30
+1.74,gravel,0.80,0.30
+2.30,metal,0.65,-0.25
+2.87,concrete,0.90,0.25
+3.43,water,0.75,-0.20
+3.90,fabric,0.65,0.20
