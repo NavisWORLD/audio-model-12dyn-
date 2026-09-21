@@ -17,6 +17,17 @@ ctest --test-dir build -C Release --output-on-failure
 
 On Windows, run `build\Release\cst-foley.exe` for multi-config Visual Studio builds. Standard-library only: CMake, C++17 compiler and enough disk space for a PCM16 WAV. Samples are rendered offline, not through a microphone or real-time audio driver. `--render` without `--events` makes a short built-in demonstration. `--help` lists options.
 
+## Learn and extend the math
+
+This repo includes a **teach-and-build guide** so you can understand the CST/dyn12-inspired controller and upgrade the Foley engine without guessing at private equations:
+
+1. **[Audio math for humans](docs/MATH_FOR_HUMANS.md)** — pronounce the symbols; learn samples, oscillators, envelopes and the twelve-state update; follow a step-by-step worked example.
+2. **[Exact CST/dyn12 audio equations](docs/AUDIO_MATH.md)** — line-to-code map of the public-reference recurrence, four event drives, two active audio taps, all six material formulas, panning, clipping and WAV export.
+3. **[Extend the engine](docs/EXTENDING_THE_ENGINE.md)** — add surfaces, try new state routing, build a measured hardware profile, design a real-time engine or add a separately trained predictor while preserving controls and evidence.
+4. **[Hardware profiling](docs/PROFILE.md)** — measure rather than assume performance on your own computer.
+
+**Code-versus-research boundary:** all 12 state scalars evolve, but only \`state[1]\` and \`state[4]\` alter the current waveform; no audio neural model is trained here. The math guides document the current implementation and label proposed upgrades separately. Public viewing does not grant third-party commercial or redistribution rights until the owner publishes license terms.
+
 ## Personal hardware tuning (not other people's hardware)
 
 `--probe` reads the **machine executing the program**: OS, logical CPU count, and physical RAM when available. Default offline profile: 32 kHz/512 frames if <=2 logical cores or <=2 GiB RAM; 48 kHz/512 frames for 3–4 cores; otherwise 48 kHz/256 frames. Probe reports RAM=0 when unknown. Override defaults with `--sample-rate`, `--block` and `--channels`. Single-threaded CPU DSP; **no GPU kernel or GPU auto-detection** exists yet, so hardware probing is not a GPU optimization claim. Audio sample rates are render settings, not an assertion about your playback device.
