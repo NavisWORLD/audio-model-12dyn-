@@ -26,7 +26,7 @@ This repo includes a **teach-and-build guide** so you can understand the CST/dyn
 3. **[Extend the engine](docs/EXTENDING_THE_ENGINE.md)** — add surfaces, try new state routing, build a measured hardware profile, design a real-time engine or add a separately trained predictor while preserving controls and evidence.
 4. **[Hardware profiling](docs/PROFILE.md)** — measure rather than assume performance on your own computer.
 
-**Code-versus-research boundary:** all 12 state scalars evolve, but only \`state[1]\` and \`state[4]\` alter the current waveform; no audio neural model is trained here. The math guides document the current implementation and label proposed upgrades separately. Public viewing does not grant third-party commercial or redistribution rights until the owner publishes license terms.
+**Code-versus-research boundary:** all 12 state scalars evolve, but only \`state[1]\` and \`state[4]\` alter the current waveform; no audio neural model is trained here. The math guides document the current implementation and label proposed upgrades separately. Original Cory-owned audio-engine source in this proposed open-source generation is licensed Apache-2.0; third-party material, if any, follows its own license.
 
 ## Personal hardware tuning (not other people's hardware)
 
@@ -46,4 +46,4 @@ For C++ integration include `<cst_audio/audio.hpp>`, link the `cst_audio` CMake 
 
 Source lineage: [The-beast-box-/beastbox/dyn12.py](https://github.com/NavisWORLD/The-beast-box-/blob/main/beastbox/dyn12.py), public reference (0.86 leak, 0.14 drive, 0.015 sinusoidal forcing). Audio signal design and tests are separate new implementations. Do not imply FlyWire, IBM, quantum advantage or biological interpretation in this renderer. See [docs/PROFILE.md](docs/PROFILE.md) for repeatable hardware profiling.
 
-**Reuse rights:** This repository has not yet been given an explicit software license. Public source visibility alone is not a grant to copy, redistribute or commercially reuse it; the owner must choose and publish licensing terms before third-party integration.
+**Reuse rights (prospective upon merge):** Original Cory-owned source in revisions adopting the root `LICENSE` is Apache-2.0 and may be used, modified, redistributed and used commercially under that license. See `OPEN_SOURCE_SCOPE.md`; third-party components remain separately licensed.
